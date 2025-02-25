@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
+
+#sectionSecundaria{
+    height: 600px;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 10%;
+    margin-right:10%;
+    border-top: 10px double #308039;
+    border-bottom: 10px double #308039;
+}
+
+#sectionSecundaria h2{
+    text-align: center;
+    font-size: 30px;
+    font-family: "Rowdies", serif;
+    font-weight: 400;
+}
+
+.CardsFlex{
+    display: flex;
+}
+
+.card{
+    flex: 30%;
+    margin: 10px;
+    border-radius: 15px;
+    border: 2px solid #308039;
+}
+
+.CardsFlex h3{
+    text-align: center;
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-family: "Rowdies", serif;
+    font-weight: 400;
+}
+
+.CardsFlex p{
+    text-align: center;
+    color: black;
+    font-family: "Saira Condensed", serif;
+    font-weight: 500;
+    font-size: 15px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.CardsFlex img{
+    width: 200px;
+}
+
+

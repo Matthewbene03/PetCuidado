@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+}
+
+#footerPrincipal{
+    margin: 0;
+    padding: 30px;
+    height: 200px;
+    justify-content: center;
+    align-content: center;
+    background-color: #308039;
+    margin-top: 50px;
+    text-align: center;
+}
+
+#footerPrincipal a{
+    padding: 15px;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    font-family: "Oswald", serif;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+#footerPrincipal a:hover{
+    border-top: 5px solid black;
+}
+
+.FaleConoscoLink{
+    float: left;
+    margin-left: 150px;
+}
+
+.TrabalheConoscoLink{
+    float: right;
+    margin-right: 150px;
+}

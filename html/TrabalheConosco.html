@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site de uma clinica veterinaria">
+    <meta name="keywords" content="Animal, Medico veterinario, clinia veterinaria, consultas, cirurgias">
+    <meta name="autor" content="Matheus Benevenuto">
+    <title>Trabalhe conosco</title>
+</head>
+    <body>
+
+        <header>
+            <h1>Informe alguns dados para entrarmos em contato com você:</h1>
+        </header>
+
+        <section>
+            <form>
+
+                <label for="CampoNome">Nome: </label>
+                <input id="CampoNome" type="text" placeholder="Digite o seu nome aqui!" required>
+                <br><br>
+
+                <label for="CampoEmail">Email: </label>
+                <input id="CampoEmail" type="email" placeholder="Digite o seu email aqui!" required>
+                <br><br>
+
+                <label for="CampoTelefone">Telefone: </label>
+                <input id="CampoTelefone" type="text" placeholder="Digite o seu telefone aqui!" required>
+                <br><br>
+
+                <input type="file" name="ArquivoCurriculo" placeholder="Anexa o seu curriculo!" required>
+                <br><br>
+
+                <select name="Vagas">
+                    <option selected disabled value="">Selecione a sua vaga: </option>
+                    <option value="Secretário">Secretário(a)</option>
+                    <option value="Veterinario">Veterinario(a)</option>
+                    <option value="Cuidador">Cuidador(a)</option>
+                </select>
+                <br><br>
+                <a href="index.html">Cancelar</a>
+                <input type="submit" value="Enviar" href="index.html">
+
+            </form>
+        </section>
+        <br><br>
+    </body>
+</html>
