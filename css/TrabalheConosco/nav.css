@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Rowdies:wght@300;400;700&display=swap');
+
+
+#TCheader{
+    background-color: #308039;
+    height: 10vh;
+    text-align: center;
+    align-content: center;
+    margin-bottom: 10vh;
+}
+
+#FCheader h1{
+    font-family: "Rowdies", serif;
+    font-weight: 400;
+    font-size: 40px;
+}
