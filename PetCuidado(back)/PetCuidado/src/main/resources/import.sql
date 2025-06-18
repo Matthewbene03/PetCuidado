@@ -10,3 +10,7 @@ insert into tb_funcionario(usuario, senha, cargo, id_pessoa) values ('user2', 's
 insert into tb_funcionario(usuario, senha, cargo, id_pessoa) values ('user3', 'senha3', 1, 3);
 insert into tb_funcionario(usuario, senha, cargo, id_pessoa) values ('user4', 'senha4', 0, 4);
 insert into tb_funcionario(usuario, senha, cargo, id_pessoa) values ('user5', 'senha5', 1, 5);
+
+insert into tb_pet(nome, especie, raca, idade, id_pessoa_dono) values ('pet1', 'especie1', 'raca1', 1, 1);
+insert into tb_pet(nome, especie, raca, idade, id_pessoa_dono) values ('pet2', 'especie2', 'raca2', 2, 2);
+insert into tb_pet(nome, especie, raca, idade, id_pessoa_dono) values ('pet3', 'especie3', 'raca3', 3, 3);
