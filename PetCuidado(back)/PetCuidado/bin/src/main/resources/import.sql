@@ -11,12 +11,6 @@ insert into tb_funcionario(usuario, senha, cargo, id_pessoa) values ('user3', 's
 insert into tb_funcionario(usuario, senha, cargo, id_pessoa) values ('user4', 'senha4', 0, 4);
 insert into tb_funcionario(usuario, senha, cargo, id_pessoa) values ('user5', 'senha5', 1, 5);
 
-
 insert into tb_pet(nome, especie, raca, idade, id_pessoa_dono) values ('pet1', 'especie1', 'raca1', 1, 1);
 insert into tb_pet(nome, especie, raca, idade, id_pessoa_dono) values ('pet2', 'especie2', 'raca2', 2, 2);
 insert into tb_pet(nome, especie, raca, idade, id_pessoa_dono) values ('pet3', 'especie3', 'raca3', 3, 3);
-
-
-INSERT INTO tb_servico(descricao, preco) VALUES ('Tosa', 50.00);
-INSERT INTO tb_servico(descricao, preco) VALUES ('Banho', 150.00);
-INSERT INTO tb_servico(descricao, preco) VALUES ('Vacinação', 75.50);
