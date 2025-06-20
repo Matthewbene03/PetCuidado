@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.petCuidado.PetCuidado.entitiesDTO.FuncionarioDTO;
 import com.petCuidado.PetCuidado.entitiesDTO.PessoaDTO;
 import com.petCuidado.PetCuidado.repositories.PessoaRepository;
 import com.petCuidado.PetCuidado.entities.Pessoa;

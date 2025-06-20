@@ -6,11 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.petCuidado.PetCuidado.entitiesDTO.FuncionarioDTO;
-import com.petCuidado.PetCuidado.enuns.EnumCargo;
 import com.petCuidado.PetCuidado.repositories.FuncionarioRepository;
-import com.petCuidado.PetCuidado.repositories.PessoaRepository;
 import com.petCuidado.PetCuidado.entities.Funcionario;
-import com.petCuidado.PetCuidado.entities.Pessoa;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -19,9 +16,6 @@ public class FuncionarioService {
 
 	@Autowired
 	private FuncionarioRepository funcionarioRepo;
-	
-	@Autowired
-	private PessoaRepository pessoaRepo;
 
 	// Buscar todos
 	public List<FuncionarioDTO> findAll() {

@@ -1,7 +1,5 @@
 package com.petCuidado.PetCuidado.entitiesDTO;
 
-import java.time.LocalDate;
-
 import com.petCuidado.PetCuidado.entities.Funcionario;
 import com.petCuidado.PetCuidado.entities.Pessoa;
 import com.petCuidado.PetCuidado.enuns.EnumCargo;

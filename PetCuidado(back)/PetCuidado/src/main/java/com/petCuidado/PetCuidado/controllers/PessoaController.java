@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.petCuidado.PetCuidado.entitiesDTO.PessoaDTO;
-import com.petCuidado.PetCuidado.services.FuncionarioService;
 import com.petCuidado.PetCuidado.services.PessoaService;
 
 @RestController
