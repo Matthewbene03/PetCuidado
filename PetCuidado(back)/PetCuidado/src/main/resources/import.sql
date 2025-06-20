@@ -20,3 +20,10 @@ insert into tb_pet(nome, especie, raca, idade, id_pessoa_dono) values ('pet3', '
 INSERT INTO tb_servico(descricao, preco) VALUES ('Tosa', 50.00);
 INSERT INTO tb_servico(descricao, preco) VALUES ('Banho', 150.00);
 INSERT INTO tb_servico(descricao, preco) VALUES ('Vacinação', 75.50);
+
+INSERT INTO tb_agendamento(data, hora, id_pet, id_servico, id_funcionario) VALUES ('10/05/2021', '14:00', 1, 1, 2);
+INSERT INTO tb_agendamento(data, hora, id_pet, id_servico, id_funcionario) VALUES ('12/05/2021', '15:00', 2, 2, 1);
+INSERT INTO tb_agendamento(data, hora, id_pet, id_servico, id_funcionario) VALUES ('10/05/2021', '14:30', 1, 2, 2);
+INSERT INTO tb_agendamento(data, hora, id_pet, id_servico, id_funcionario) VALUES ('13/05/2021', '16:00', 3, 1, 3);
+INSERT INTO tb_agendamento(data, hora, id_pet, id_servico, id_funcionario) VALUES ('13/05/2021', '16:30', 3, 2, 3);
+INSERT INTO tb_agendamento(data, hora, id_pet, id_servico, id_funcionario) VALUES ('13/05/2021', '17:30', 3, 3, 5);
