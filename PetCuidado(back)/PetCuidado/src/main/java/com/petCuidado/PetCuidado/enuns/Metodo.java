@@ -5,5 +5,6 @@ public enum Metodo {
 	DINHEIRO,
 	CREDITO,
 	DEBITO,
-	CHEQUE
+	CHEQUE,
+	PIX
 }

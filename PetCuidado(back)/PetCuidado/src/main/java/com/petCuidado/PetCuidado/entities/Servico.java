@@ -2,6 +2,7 @@ package com.petCuidado.PetCuidado.entities;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,7 +16,11 @@ public class Servico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
+	@Column(nullable = false)
 	private String descricao;
+	
+	@Column(nullable = false)
 	private float preco;
 	
 	public Servico() {

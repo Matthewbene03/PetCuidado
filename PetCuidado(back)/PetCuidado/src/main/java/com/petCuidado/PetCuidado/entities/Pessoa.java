@@ -2,7 +2,7 @@ package com.petCuidado.PetCuidado.entities;
 
 import java.util.Objects;
 
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,9 +16,16 @@ public class Pessoa {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(nullable = false)
 	private String nome;
+	
+	@Column(nullable = false)
 	private String cpf;
+	
+	@Column(nullable = true)
 	private String email;
+	
+	@Column(nullable = true)
 	private String telefone;
 	//private EnumTipoPessoa tipoPessoa;
 	

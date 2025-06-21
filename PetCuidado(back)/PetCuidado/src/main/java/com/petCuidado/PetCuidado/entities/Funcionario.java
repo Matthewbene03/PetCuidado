@@ -4,6 +4,7 @@ import java.util.Objects;
 
 import com.petCuidado.PetCuidado.enuns.EnumCargo;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,12 +26,17 @@ public class Funcionario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(nullable = false)
 	private EnumCargo cargo;
+	
+	@Column(nullable = false)
 	private String usuario;
+	
+	@Column(nullable = false)
 	private String senha;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_pessoa")
+	@JoinColumn(name = "id_pessoa", nullable = false)
 	private Pessoa pessoa;
 
 	public Funcionario() {

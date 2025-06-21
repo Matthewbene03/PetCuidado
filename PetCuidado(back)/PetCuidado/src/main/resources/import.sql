@@ -28,11 +28,11 @@ INSERT INTO tb_agendamento(data, hora, id_pet, id_servico, id_funcionario) VALUE
 INSERT INTO tb_agendamento(data, hora, id_pet, id_servico, id_funcionario) VALUES ('13/05/2021', '16:30', 3, 2, 3);
 INSERT INTO tb_agendamento(data, hora, id_pet, id_servico, id_funcionario) VALUES ('13/05/2021', '17:30', 3, 3, 5);
 
-INSERT INTO tb_pagamento(dataVencimento, dataPagamento, valor, metodo, id_agendamento) VALUES ('17/05/2021', '13/05/2021', 50.00, 5, 1);
-INSERT INTO tb_pagamento(dataVencimento, dataPagamento, valor, metodo, id_agendamento) VALUES ('19/05/2021', '12/05/2021', 150.00, 3, 2);
-INSERT INTO tb_pagamento(dataVencimento, dataPagamento, valor, metodo, id_agendamento) VALUES ('17/05/2021', '08/05/2021', 150.00, 1, 3);
-INSERT INTO tb_pagamento(dataVencimento, dataPagamento, valor, metodo, id_agendamento) VALUES ('20/05/2021', '21/05/2021', 51.50, 2, 4);
-INSERT INTO tb_pagamento(dataVencimento, dataPagamento, valor, metodo, id_agendamento) VALUES ('20/05/2021', '19/05/2021', 25.00, 2, 5);
-INSERT INTO tb_pagamento(dataVencimento, dataPagamento, valor, metodo, id_agendamento) VALUES ('20/06/2021', '18/06/2021', 25.00, 2, 5);
-INSERT INTO tb_pagamento(dataVencimento, dataPagamento, valor, metodo, id_agendamento) VALUES ('20/07/2021', '19/07/2021', 100.00, 2, 5);
-INSERT INTO tb_pagamento(dataVencimento, dataPagamento, valor, metodo, id_agendamento) VALUES ('20/05/2021', '13/05/2021', 75.00, 4, 6);
+INSERT INTO tb_pagamento(data_vencimento, data_pagamento, valor, metodo, id_agendamento) VALUES ('17/05/2021', '13/05/2021', 50.00, 4, 1);
+INSERT INTO tb_pagamento(data_vencimento, data_pagamento, valor, metodo, id_agendamento) VALUES ('19/05/2021', '12/05/2021', 150.00, 3, 2);
+INSERT INTO tb_pagamento(data_vencimento, data_pagamento, valor, metodo, id_agendamento) VALUES ('17/05/2021', '08/05/2021', 150.00, 1, 3);
+INSERT INTO tb_pagamento(data_vencimento, data_pagamento, valor, metodo, id_agendamento) VALUES ('20/05/2021', '21/05/2021', 51.50, 2, 4);
+INSERT INTO tb_pagamento(data_vencimento, data_pagamento, valor, metodo, id_agendamento) VALUES ('20/05/2021', '19/05/2021', 25.00, 2, 5);
+INSERT INTO tb_pagamento(data_vencimento, data_pagamento, valor, metodo, id_agendamento) VALUES ('20/06/2021', '18/06/2021', 25.00, 2, 5);
+INSERT INTO tb_pagamento(data_vencimento, data_pagamento, valor, metodo, id_agendamento) VALUES ('20/07/2021', '19/07/2021', 100.00, 2, 5);
+INSERT INTO tb_pagamento(data_vencimento, data_pagamento, valor, metodo, id_agendamento) VALUES ('20/05/2021', '13/05/2021', 75.00, 4, 6);

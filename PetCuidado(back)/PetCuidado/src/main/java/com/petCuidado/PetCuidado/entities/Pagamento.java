@@ -4,6 +4,7 @@ import java.util.Objects;
 
 import com.petCuidado.PetCuidado.enuns.Metodo;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,13 +20,21 @@ public class Pagamento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
+	@Column(nullable = false)
 	private String dataVencimento;
+	
+	@Column(nullable = true)
 	private String dataPagamento;
+	
+	@Column(nullable = true)
 	private float valor;
+	
+	@Column(nullable = true)
 	private Metodo metodo;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_agendamento")
+	@JoinColumn(name = "id_agendamento", nullable = false)
 	private Agendamento agendamento;
 	
 	public Pagamento() {

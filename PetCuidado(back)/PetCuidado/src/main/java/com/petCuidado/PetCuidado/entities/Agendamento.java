@@ -2,6 +2,7 @@ package com.petCuidado.PetCuidado.entities;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,19 +18,23 @@ public class Agendamento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
+	@Column(nullable = false)
 	private String data;
+	
+	@Column(nullable = false)
 	private String hora;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_pet")
+	@JoinColumn(name = "id_pet", nullable = false)
 	private Pet pet;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_servico")
+	@JoinColumn(name = "id_servico", nullable = false)
 	private Servico servico;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_funcionario")
+	@JoinColumn(name = "id_funcionario", nullable = false)
 	private Funcionario funcionario;
 	
 	public long getId() {
