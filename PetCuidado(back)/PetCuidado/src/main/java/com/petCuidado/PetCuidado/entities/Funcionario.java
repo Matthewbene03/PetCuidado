@@ -29,7 +29,7 @@ public class Funcionario {
 	@Column(nullable = false)
 	private EnumCargo cargo;
 	
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String usuario;
 	
 	@Column(nullable = false)

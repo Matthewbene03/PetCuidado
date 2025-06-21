@@ -62,4 +62,10 @@ public class PagamentoService {
 			} 
 			pagamentoRepository.deleteById(id); 
 		}
+		
+		//Buscar pagamentos por agendamento
+		public List<PagamentoDTO> findByAgendamentoId(Long agendamentoId) {
+			List<Pagamento> listaPagamentos = pagamentoRepository.findByAgendamentoId(agendamentoId);
+			return listaPagamentos.stream().map(PagamentoDTO::new).toList();
+		}
 }

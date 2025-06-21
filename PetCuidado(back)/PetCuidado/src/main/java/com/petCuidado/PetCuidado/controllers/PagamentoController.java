@@ -52,4 +52,10 @@ public class PagamentoController {
 		pagamentoService.delete(id); 
 		return ResponseEntity.noContent().build(); 
 	}
+	
+	@GetMapping("/agendamento/{agendamentoId}")
+	public ResponseEntity<List<PagamentoDTO>> findByAgendamentoId(@PathVariable long agendamentoId) {
+		List<PagamentoDTO> pagamentoDTOs = pagamentoService.findByAgendamentoId(agendamentoId);
+		return ResponseEntity.ok(pagamentoDTOs);
+	}
 }
