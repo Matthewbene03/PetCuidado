@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.petCuidado.PetCuidado.entitiesDTO.AgendamentoDTO;
+import com.petCuidado.PetCuidado.entitiesDTO.PagamentoDTO;
 import com.petCuidado.PetCuidado.services.AgendamentoService;
 
 @RestController
@@ -51,5 +52,23 @@ public class AgendamentoController {
 	public ResponseEntity<Void> delete(@PathVariable Long id) { 
 		agendamentoService.delete(id); 
 		return ResponseEntity.noContent().build(); 
+	}
+	
+	@GetMapping("/servico/{servicoId}")
+	public ResponseEntity<List<AgendamentoDTO>> findByServicoId(@PathVariable long servicoId) {
+		List<AgendamentoDTO> agendamentoDTOs = agendamentoService.findByServicoId(servicoId);
+		return ResponseEntity.ok(agendamentoDTOs);
+	}
+	
+	@GetMapping("/pet/{petId}")
+	public ResponseEntity<List<AgendamentoDTO>> findByPetId(@PathVariable long petId) {
+		List<AgendamentoDTO> agendamentoDTOs = agendamentoService.findByPetId(petId);
+		return ResponseEntity.ok(agendamentoDTOs);
+	}
+	
+	@GetMapping("/funcionario/{funcionarioId}")
+	public ResponseEntity<List<AgendamentoDTO>> findByFuncionarioId(@PathVariable long funcionarioId) {
+		List<AgendamentoDTO> agendamentoDTOs = agendamentoService.findByFuncionarioId(funcionarioId);
+		return ResponseEntity.ok(agendamentoDTOs);
 	}
 }

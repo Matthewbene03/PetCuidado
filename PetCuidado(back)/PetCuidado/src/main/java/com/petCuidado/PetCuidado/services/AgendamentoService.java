@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.petCuidado.PetCuidado.entities.Agendamento;
+import com.petCuidado.PetCuidado.entities.Pagamento;
 import com.petCuidado.PetCuidado.entitiesDTO.AgendamentoDTO;
+import com.petCuidado.PetCuidado.entitiesDTO.PagamentoDTO;
 import com.petCuidado.PetCuidado.repositories.AgendamentoRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -61,5 +63,23 @@ public class AgendamentoService {
 			throw new EntityNotFoundException("Agendamento não encontrado com ID: " + id); 
 		} 
 		agendamentoRepository.deleteById(id); 
+	}
+	
+	//Buscar agendamentos por servico
+	public List<AgendamentoDTO> findByServicoId(Long servicoId) {
+		List<Agendamento> listaAgendamentos = agendamentoRepository.findByServicoId(servicoId);
+		return listaAgendamentos.stream().map(AgendamentoDTO::new).toList();
+	}
+	
+	//Buscar agendamentos por pet
+	public List<AgendamentoDTO> findByPetId(Long petId) {
+		List<Agendamento> listaAgendamentos = agendamentoRepository.findByPetId(petId);
+		return listaAgendamentos.stream().map(AgendamentoDTO::new).toList();
+	}
+		
+	//Buscar agendamentos por funcionario
+	public List<AgendamentoDTO> findByFuncionarioId(Long funcionarioId) {
+		List<Agendamento> listaAgendamentos = agendamentoRepository.findByFuncionarioId(funcionarioId);
+		return listaAgendamentos.stream().map(AgendamentoDTO::new).toList();
 	}
 }
