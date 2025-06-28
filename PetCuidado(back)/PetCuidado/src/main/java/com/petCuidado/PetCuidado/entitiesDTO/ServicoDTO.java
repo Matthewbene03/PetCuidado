@@ -7,6 +7,7 @@ public class ServicoDTO {
 	private long id;
 	private String descricao;
 	private float preco;
+	private int duracao;
 	
 	public ServicoDTO() {
 	}
@@ -15,6 +16,7 @@ public class ServicoDTO {
 		this.id = servico.getId();
 		this.descricao = servico.getDescricao();
 		this.preco = servico.getPreco();
+		this.duracao = servico.getDuracao();
 	}
 
 	public long getId() {
@@ -29,4 +31,7 @@ public class ServicoDTO {
 		return preco;
 	}
 	
+	public int getDuracao() {
+		return duracao;
+	}
 }

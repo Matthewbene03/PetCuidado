@@ -1,14 +1,13 @@
 package com.petCuidado.PetCuidado.services;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.petCuidado.PetCuidado.entities.Agendamento;
-import com.petCuidado.PetCuidado.entities.Pagamento;
 import com.petCuidado.PetCuidado.entitiesDTO.AgendamentoDTO;
-import com.petCuidado.PetCuidado.entitiesDTO.PagamentoDTO;
 import com.petCuidado.PetCuidado.repositories.AgendamentoRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -33,10 +32,24 @@ public class AgendamentoService {
 	}
 	
 	// Inserir Produto 
-	public AgendamentoDTO insert(AgendamentoDTO agendamentoDTO) { 
+	public AgendamentoDTO insert(AgendamentoDTO agendamentoDTO) {
+		LocalDateTime inicio = agendamentoDTO.getData();
+        int duracao = agendamentoDTO.getServico().getDuracao();
+        LocalDateTime fim = inicio.plusMinutes(duracao);
+
+        Long petId = agendamentoDTO.getPet().getId();
+        Long funcionarioId = agendamentoDTO.getFuncionario().getId();
+
+        List<Agendamento> conflitos = agendamentoRepository.findConflitosAgendamento(
+            petId, funcionarioId, inicio, fim
+        );
+
+        if (!conflitos.isEmpty()) {
+            throw new RuntimeException("Conflito de horário com o pet ou funcionário.");
+        }
+		
 		Agendamento agendamento = new Agendamento(); 
 		agendamento.setData(agendamentoDTO.getData());
-		agendamento.setHora(agendamentoDTO.getHora());
 		agendamento.setPet(agendamentoDTO.getPet());
 		agendamento.setServico(agendamentoDTO.getServico());
 		agendamento.setFuncionario(agendamentoDTO.getFuncionario());
@@ -49,7 +62,6 @@ public class AgendamentoService {
 		Agendamento agendamento = agendamentoRepository.findById(id) 
 				.orElseThrow(() -> new EntityNotFoundException("Agendamento não encontrado com ID: " + id)); 
 		agendamento.setData(agendamentoDTO.getData());
-		agendamento.setHora(agendamentoDTO.getHora());
 		agendamento.setPet(agendamentoDTO.getPet());
 		agendamento.setServico(agendamentoDTO.getServico());
 		agendamento.setFuncionario(agendamentoDTO.getFuncionario());

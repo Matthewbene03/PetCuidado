@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.petCuidado.PetCuidado.entitiesDTO.AgendamentoDTO;
-import com.petCuidado.PetCuidado.entitiesDTO.PagamentoDTO;
 import com.petCuidado.PetCuidado.services.AgendamentoService;
 
 @RestController

@@ -33,7 +33,9 @@ public class ServicoService {
 	// Inserir 
 	public ServicoDTO insert(ServicoDTO servicoDTO) { 
 		Servico servico = new Servico(); 
-		servico.setDescricao(servicoDTO.getDescricao()); 
+		servico.setDescricao(servicoDTO.getDescricao());
+		servico.setPreco(servicoDTO.getPreco());
+		servico.setDuracao(servicoDTO.getDuracao());
 		Servico servicoSalvo = servicoRepository.save(servico);
 		return new ServicoDTO(servicoSalvo); 
 	}
@@ -42,7 +44,9 @@ public class ServicoService {
 	public ServicoDTO update(Long id, ServicoDTO servicoDTO) { 
 		Servico servico = servicoRepository.findById(id) 
 				.orElseThrow(() -> new EntityNotFoundException("Servico não encontrado com ID: " + id)); 
-		servico.setDescricao(servicoDTO.getDescricao()); 
+		servico.setDescricao(servicoDTO.getDescricao());
+		servico.setPreco(servicoDTO.getPreco());
+		servico.setDuracao(servicoDTO.getDuracao());
 		Servico servicoAtualizado = servicoRepository.save(servico); 
 		return new ServicoDTO(servicoAtualizado); 
 	}

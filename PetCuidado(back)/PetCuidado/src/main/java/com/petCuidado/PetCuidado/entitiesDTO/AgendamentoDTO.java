@@ -1,5 +1,7 @@
 package com.petCuidado.PetCuidado.entitiesDTO;
 
+import java.time.LocalDateTime;
+
 import com.petCuidado.PetCuidado.entities.Agendamento;
 import com.petCuidado.PetCuidado.entities.Funcionario;
 import com.petCuidado.PetCuidado.entities.Pet;
@@ -8,8 +10,7 @@ import com.petCuidado.PetCuidado.entities.Servico;
 public class AgendamentoDTO {
 
 	private long id;
-	private String data;
-	private String hora;
+	private LocalDateTime data;
 	private Pet pet;
 	private Servico servico;
 	private Funcionario funcionario;
@@ -21,7 +22,6 @@ public class AgendamentoDTO {
 	public AgendamentoDTO(Agendamento agendamento) {
 		this.id = agendamento.getId();
 		this.data = agendamento.getData();
-		this.hora = agendamento.getHora();
 		this.pet = agendamento.getPet();
 		this.servico = agendamento.getServico();
 		this.funcionario = agendamento.getFuncionario();
@@ -31,12 +31,8 @@ public class AgendamentoDTO {
 		return id;
 	}
 
-	public String getData() {
+	public LocalDateTime getData() {
 		return data;
-	}
-
-	public String getHora() {
-		return hora;
 	}
 
 	public Pet getPet() {
@@ -50,6 +46,5 @@ public class AgendamentoDTO {
 	public Funcionario getFuncionario() {
 		return funcionario;
 	}
-	
 	
 }

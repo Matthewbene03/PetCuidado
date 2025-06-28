@@ -23,13 +23,17 @@ public class Servico {
 	@Column(nullable = false)
 	private float preco;
 	
+	@Column(nullable = false)
+	private int duracao;
+	
 	public Servico() {
 	}
 	
-	public Servico(long id, String descricao, float preco) {
+	public Servico(long id, String descricao, float preco, int duracao) {
 		this.id = id;
 		this.descricao = descricao;
 		this.preco = preco;
+		this.duracao = duracao;
 	}
 
 	public long getId() {
@@ -55,10 +59,18 @@ public class Servico {
 	public void setPreco(float preco) {
 		this.preco = preco;
 	}
+	
+	public int getDuracao() {
+		return duracao;
+	}
+
+	public void setDuracao(int duracao) {
+		this.duracao = duracao;
+	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(descricao, id, preco);
+		return Objects.hash(descricao, duracao, id, preco);
 	}
 
 	@Override
@@ -70,9 +82,8 @@ public class Servico {
 		if (getClass() != obj.getClass())
 			return false;
 		Servico other = (Servico) obj;
-		return Objects.equals(descricao, other.descricao) && id == other.id
+		return Objects.equals(descricao, other.descricao) && duracao == other.duracao && id == other.id
 				&& Float.floatToIntBits(preco) == Float.floatToIntBits(other.preco);
 	}
-	
 	
 }

@@ -1,5 +1,6 @@
 package com.petCuidado.PetCuidado.entities;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -20,10 +21,7 @@ public class Agendamento {
 	private long id;
 	
 	@Column(nullable = false)
-	private String data;
-	
-	@Column(nullable = false)
-	private String hora;
+	private LocalDateTime data;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_pet", nullable = false)
@@ -43,17 +41,11 @@ public class Agendamento {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getData() {
+	public LocalDateTime getData() {
 		return data;
 	}
-	public void setData(String data) {
+	public void setData(LocalDateTime data) {
 		this.data = data;
-	}
-	public String getHora() {
-		return hora;
-	}
-	public void setHora(String hora) {
-		this.hora = hora;
 	}
 	public Pet getPet() {
 		return pet;
@@ -75,7 +67,7 @@ public class Agendamento {
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(data, funcionario, hora, id, pet, servico);
+		return Objects.hash(data, funcionario, id, pet, servico);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -87,7 +79,7 @@ public class Agendamento {
 			return false;
 		Agendamento other = (Agendamento) obj;
 		return Objects.equals(data, other.data) && Objects.equals(funcionario, other.funcionario)
-				&& Objects.equals(hora, other.hora) && id == other.id && Objects.equals(pet, other.pet)
+				&& id == other.id && Objects.equals(pet, other.pet)
 				&& Objects.equals(servico, other.servico);
 	}
 
