@@ -7,17 +7,25 @@ import { CadastrarPetComponent } from './pages/cadastrar-pet/cadastrar-pet.compo
 import { CadastrarServicoComponent } from './pages/cadastrar-servico/cadastrar-servico.component';
 import { TelaPrincipalComponent } from './pages/tela-principal/tela-principal.component';
 import { LoginComponent } from './pages/login/login.component';
+import { MenuComponent } from './shared/menu/menu.component';
+import { RealizarAgendamentoComponent } from './pages/realizar-agendamento/realizar-agendamento.component';
 
 export const routes: Routes = [
+    { path: '', component: LoginComponent },
     { path: 'home', component: HomeComponent },
-    {path: '', component: LoginComponent},
-    { path: 'cadastrarFuncionario', component: CadastrarFuncionarioComponent },
-    { path: 'cadastrarPessoa', component: CadastrarPessoaComponent },
-    { path: 'cadastrarPet', component: CadastrarPetComponent },
-    { path: 'cadastrarServico', component: CadastrarServicoComponent },
-    { path: 'cadastrarFuncionario/:id', component: CadastrarFuncionarioComponent },
-    { path: 'cadastrarPessoa/:id', component: CadastrarPessoaComponent },
-    { path: 'cadastrarPet/:id', component: CadastrarPetComponent },
-    { path: 'cadastrarServico/:id', component: CadastrarServicoComponent },
-    { path: 'telaPrincipal', component: TelaPrincipalComponent },
+    {
+        path: 'menu', component: MenuComponent,
+        children: [
+            { path: 'cadastrarFuncionario', component: CadastrarFuncionarioComponent },
+            { path: 'cadastrarPessoa', component: CadastrarPessoaComponent },
+            { path: 'cadastrarPet', component: CadastrarPetComponent },
+            { path: 'cadastrarServico', component: CadastrarServicoComponent },
+            { path: 'cadastrarFuncionario/:id', component: CadastrarFuncionarioComponent },
+            { path: 'cadastrarPessoa/:id', component: CadastrarPessoaComponent },
+            { path: 'cadastrarPet/:id', component: CadastrarPetComponent },
+            { path: 'cadastrarServico/:id', component: CadastrarServicoComponent },
+            {path: 'realizarAgendamento', component: RealizarAgendamentoComponent},
+            { path: 'telaPrincipal', component: TelaPrincipalComponent }
+        ]
+    }
 ];

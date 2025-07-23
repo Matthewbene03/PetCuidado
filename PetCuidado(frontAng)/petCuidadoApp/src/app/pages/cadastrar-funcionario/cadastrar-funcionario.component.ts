@@ -22,6 +22,8 @@ export class CadastrarFuncionarioComponent {
 
   formulario: FormGroup;
   pessoas: Pessoa[] = [];
+  enumCargos: string[] = ['Gerente', 'Medico_Veterinario', 'Cuidador', 'Secretaria'];
+
 
   constructor(private fb: FormBuilder, private funcionarioService: FuncionarioService, private pessoaService: PessoaService, private route: ActivatedRoute, private router: Router) {
     this.formulario = this.fb.group({

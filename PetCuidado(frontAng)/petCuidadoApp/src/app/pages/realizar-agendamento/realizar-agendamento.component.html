@@ -1,0 +1,31 @@
+<body>
+    <h2>Agendamento de serviço</h2>
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="data">
+            <label id="data">Informe a data da consulta:</label><br />
+            <input type="datetime-local" formControlName="data" [min]="dataMinima">
+        </div>
+        <div class="pet">
+            <label id="pet">Qual é o animal?</label><br />
+            <select formControlName="pet">
+                <option *ngFor="let pet of pets" [ngValue]="pet">{{ pet.nome }}</option>
+            </select>
+        </div>
+        <div class="funcionario">
+            <label id="funcionario">Funcionario:</label><br />
+            <select formControlName="funcionario">
+                <option *ngFor="let funcionario of funcionarios" [ngValue]="funcionario">{{ funcionario.pessoa.nome }}
+                </option>
+            </select>
+        </div>
+        <div class="servico">
+            <label id="servico">Serviço:</label><br />
+            <select formControlName="servico">
+                <option *ngFor="let servico of servicos" [ngValue]="servico">{{ servico.descricao}}</option>
+            </select>
+        </div>
+        <div class="divBtn">
+            <button id="btnCadastro" type="submit" [disabled]="formulario.invalid">Cadastrar</button>
+        </div>
+    </form>
+</body>

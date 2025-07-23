@@ -35,6 +35,19 @@ public class Agendamento {
 	@JoinColumn(name = "id_funcionario", nullable = false)
 	private Funcionario funcionario;
 	
+	public Agendamento() {
+		super();
+	}
+	
+	public Agendamento(long id, LocalDateTime data, Pet pet, Servico servico, Funcionario funcionario) {
+		super();
+		this.id = id;
+		this.data = data;
+		this.pet = pet;
+		this.servico = servico;
+		this.funcionario = funcionario;
+	}
+	
 	public long getId() {
 		return id;
 	}

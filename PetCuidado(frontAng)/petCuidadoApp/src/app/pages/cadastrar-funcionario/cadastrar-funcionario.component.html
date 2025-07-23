@@ -9,7 +9,9 @@
         </div>
         <div class="cargo">
             <label id="cargo">Cargo:</label><br />
-            <input formControlName="cargo">
+            <select formControlName="cargo">
+                <option *ngFor="let cargo of enumCargos" [value]="cargo">{{ cargo }}</option>
+            </select>
         </div>
         <div class="usuario">
             <label id="usuario">Usuario:</label><br />

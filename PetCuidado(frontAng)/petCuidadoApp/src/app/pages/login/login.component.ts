@@ -44,7 +44,7 @@ export class LoginComponent {
           localStorage.setItem('usuarioLogado', JSON.stringify(funcionario));
 
           alert('Login feito com sucesso');
-          this.router.navigate(['/home']);
+          this.router.navigate(['/menu']);
         },
         error: (err) => {
           console.error('Erro ao autenticar:', err);

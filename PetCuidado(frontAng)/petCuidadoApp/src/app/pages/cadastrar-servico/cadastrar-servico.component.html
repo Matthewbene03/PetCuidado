@@ -1,1 +1,20 @@
-<p>cadastrar-servico works!</p>
+<body>
+    <h2>Cadastro de serviços</h2>
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="descricao">
+            <label id="descricao">Descrição:</label><br />
+            <input formControlName="descricao">
+        </div>
+        <div class="preco">
+            <label id="preco">Preço:</label><br />
+            <input formControlName="preco">
+        </div>
+        <div class="duracao">
+            <label id="duracao">Duração:</label><br />
+            <input formControlName="duracao">
+        </div>
+        <div class="divBtn">
+            <button id="btnCadastro" type="submit" [disabled]="formulario.invalid">Cadastrar</button>
+        </div>
+    </form>
+</body>

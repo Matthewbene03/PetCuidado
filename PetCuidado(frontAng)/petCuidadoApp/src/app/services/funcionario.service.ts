@@ -38,4 +38,13 @@ export class FuncionarioService {
       usuario, senha
     });
   }
+
+  getCargoUsuarioLogado(): string | null {
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
+    if (usuarioLogado) {
+      const funcionario = JSON.parse(usuarioLogado);
+      return funcionario.cargo;
+    }
+    return null;
+  }
 }
