@@ -31,7 +31,7 @@ select{
     height: 44px;
 }
 
-div.cargo{
+div.pessoa, div.cargo{
     grid-column: 1/3;
 }
 

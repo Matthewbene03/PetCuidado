@@ -36,7 +36,7 @@ public class PessoaController {
 	}
 	
 	@GetMapping("/{cpf}")
-	public ResponseEntity<PessoaDTO> findByCpf(String cpf) {
+	public ResponseEntity<PessoaDTO> findByCpf(@PathVariable String cpf) {
 		PessoaDTO pessoaDTOs = pessoaService.findByCpf(cpf);
 		return ResponseEntity.ok(pessoaDTOs);
 	}

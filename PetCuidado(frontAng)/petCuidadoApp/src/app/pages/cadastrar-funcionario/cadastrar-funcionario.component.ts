@@ -21,14 +21,12 @@ import { PessoaService } from '../../services/pessoa.service';
 export class CadastrarFuncionarioComponent {
 
   formulario: FormGroup;
+  pessoas: Pessoa[] = [];
 
-  constructor(private fb: FormBuilder, private funcionarioService: FuncionarioService, private pessoaService: PessoaService private route: ActivatedRoute, private router: Router) {
+  constructor(private fb: FormBuilder, private funcionarioService: FuncionarioService, private pessoaService: PessoaService, private route: ActivatedRoute, private router: Router) {
     this.formulario = this.fb.group({
       id: [''], // campo opcional para identificar edição
-      nome: ['', Validators.required],
-      cpf: ['', Validators.required],
-      email: ['', Validators.required],
-      telefone: ['', Validators.required],
+      pessoa: [null, Validators.required],
       cargo: ['', Validators.required],
       usuario: ['', Validators.required],
       senha: ['', Validators.required]
@@ -42,33 +40,20 @@ export class CadastrarFuncionarioComponent {
         this.formulario.patchValue(funcionario)
       });
     }
+
+    this.pessoaService.listar().subscribe(pessoa => {
+      this.pessoas = pessoa;
+    });
   }
 
   onSubmit(): void {
     if (this.formulario.valid) {
-      let pessoa = new Pessoa();
-      pessoa.nome = this.formulario.get('nome')?.value;
-      pessoa.cpf = this.formulario.get('cpf')?.value;
-      pessoa.email = this.formulario.get('email')?.value;
-      pessoa.telefone = this.formulario.get('telefone')?.value;
-
-      this.pessoaService.salvar(pessoa).subscribe(() =>{
-        alert("Pessoa cadastrada com sucesso!");
-      });
-
-
-      let funcionario = new Funcionario();
-      funcionario.cargo = this.formulario.get('cargo')?.value;
-      funcionario.usuario = this.formulario.get('usuario')?.value;
-      funcionario.senha = this.formulario.get('senha')?.value;
-      funcionario.pessoa = pessoa;
-
-      this.funcionarioService.salvar(funcionario).subscribe(() => {
+        this.funcionarioService.salvar(this.formulario.value).subscribe(() => {
           alert('Funcionario cadastrado com sucesso!');
           this.formulario.reset();
         });
-      }
     }
+  }
 }
 
 

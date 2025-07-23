@@ -32,4 +32,8 @@ export class PessoaService {
   excluir(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+
+  buscarPorCpf(cpf: string): Observable<Pessoa>{
+    return this.http.get<Pessoa>(`${this.apiUrl}/cpf/${cpf}`);
+  }
 }

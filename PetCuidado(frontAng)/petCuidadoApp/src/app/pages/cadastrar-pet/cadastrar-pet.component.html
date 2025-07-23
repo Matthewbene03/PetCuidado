@@ -1,1 +1,30 @@
-<p>cadastrar-pet works!</p>
+<body>
+    <h2>Cadastro de PET</h2>
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="nome">
+            <label id="nome">Nome:</label><br>
+            <input formControlName="nome">
+        </div>
+        <div class="especie">
+            <label id="especie">Especie:</label><br>
+            <input formControlName="especie">
+        </div>
+        <div class="raca">
+            <label id="raca">Raça:</label><br />
+            <input formControlName="raca">
+        </div>
+        <div class="idade">
+            <label id="idade">Idade:</label><br />
+            <input formControlName="idade">
+        </div>
+        <div class="pessoa">
+            <label id="pessoa">Dono do PET:</label><br />
+            <select formControlName="pessoaDono">
+                <option *ngFor="let pessoa of pessoas" [ngValue]="pessoa">{{ pessoa.nome }}</option>
+            </select>
+        </div>
+        <div class="divBtn">
+            <button id="btnCadastro" type="submit" [disabled]="formulario.invalid">Cadastrar</button>
+        </div>
+    </form>
+</body>

@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.petCuidado.PetCuidado.entitiesDTO.PetDTO;
+import com.petCuidado.PetCuidado.repositories.PessoaRepository;
 import com.petCuidado.PetCuidado.repositories.PetRepository;
+import com.petCuidado.PetCuidado.entities.Pessoa;
 import com.petCuidado.PetCuidado.entities.Pet;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -16,6 +18,9 @@ public class PetService {
 
 	@Autowired
 	private PetRepository petRepo;
+	
+	@Autowired
+	private PessoaRepository pessoaRepo;
 
 	// Buscar todos
 	public List<PetDTO> findAll() {
@@ -38,7 +43,8 @@ public class PetService {
 		pet.setEspecie(petDTO.getEspecie());
 		pet.setRaca(petDTO.getRaca());
 		pet.setIdade(petDTO.getIdade());
-		pet.setPessoa(petDTO.getPessoaDono());
+		Pessoa pessoa = pessoaRepo.findById(petDTO.getPessoaDono().getId()).orElseThrow(() -> new EntityNotFoundException("Pessoa não encontrado com ID: " + petDTO.getPessoaDono().getId()));
+		pet.setPessoa(pessoa);
 		
 		//Salva no banco
 		Pet petSalvo = petRepo.save(pet);
@@ -52,7 +58,8 @@ public class PetService {
 		//Set os atributos atualizado do Pet
 		pet.setNome(novoPetDTO.getNome());
 		pet.setIdade(novoPetDTO.getIdade());
-		pet.setPessoa(novoPetDTO.getPessoaDono());
+		Pessoa pessoa = pessoaRepo.findById(novoPetDTO.getPessoaDono().getId()).orElseThrow(() -> new EntityNotFoundException("Pessoa não encontrado com ID: " + novoPetDTO.getPessoaDono().getId()));
+		pet.setPessoa(pessoa);
 		
 		//Salva no banco
 		Pet petAtualizado = petRepo.save(pet);

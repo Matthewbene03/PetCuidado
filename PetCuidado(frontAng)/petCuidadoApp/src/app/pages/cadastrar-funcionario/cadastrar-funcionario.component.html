@@ -1,21 +1,11 @@
 <body>
     <h2>Cadastro de funcionario</h2>
     <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-        <div class="nome">
-            <label id="nome">Nome:</label><br>
-            <input formControlName="nome">
-        </div>
-        <div class="cpf">
-            <label id="cpf">CPF:</label><br>
-            <input formControlName="cpf">
-        </div>
-        <div class="email">
-            <label id="email">Email:</label><br />
-            <input formControlName="email">
-        </div>
-        <div class="telefone">
-            <label id="telefone">Telefone:</label><br />
-            <input formControlName="telefone">
+        <div class="pessoa">
+            <label id="pessoa">Dados do funcionario novo:</label><br />
+            <select formControlName="pessoa">
+                <option *ngFor="let pessoa of pessoas" [ngValue]="pessoa">{{ pessoa.nome }}</option>
+            </select>
         </div>
         <div class="cargo">
             <label id="cargo">Cargo:</label><br />
