@@ -1,0 +1,21 @@
+<body>
+  <h2>Agendamentos realizados</h2>
+  <table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Pet</th>
+        <th>Funcionario</th>
+        <th>Serviço</th>
+        <th>Data e hora</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let agendamento of agendamentos">
+        <td>{{ agendamento.pet.nome }}</td>
+        <td>{{ agendamento.funcionario.pessoa.nome}}</td>
+        <td>{{ agendamento.servico.descricao }}</td>
+        <td>{{ agendamento.data | date:'dd/MM/yyyy HH:mm'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</body>

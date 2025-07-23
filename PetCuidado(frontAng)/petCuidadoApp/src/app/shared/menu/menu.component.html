@@ -5,15 +5,15 @@
         <a routerLink="cadastrarPet">Cadastro de pet</a>
         <a routerLink="cadastrarServico">Cadastro de serviços</a>
         <a routerLink="cadastrarFuncionario">Cadastro de funcionarios</a>
-        <a routerLink="">Lista de agendamentos</a>
+        <a routerLink="listaAgendamentos">Lista de agendamentos</a>
         <a href="" (click)="logout()">Sair</a>
     </div>
     <div class="secretaria" *ngIf="cargo === 'Secretaria'">
-        <a routerLink="">Realizar Agendamento</a>
+        <a routerLink="realizarAgendamento">Realizar Agendamento</a>
         <a routerLink="cadastrarPessoa">Cadastro de pessoa</a>
         <a routerLink="cadastrarPet">Cadastro de pet</a>
         <a routerLink="cadastrarServico">Cadastro de serviços</a>
-        <a routerLink="">Lista de agendamentos</a>
+        <a routerLink="listaAgendamentos">Lista de agendamentos</a>
         <a href="" (click)="logout()">Sair</a>
     </div>
     <div class="medico" *ngIf="cargo === 'Medico_Veterinario'">

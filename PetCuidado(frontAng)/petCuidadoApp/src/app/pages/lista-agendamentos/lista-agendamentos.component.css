@@ -1,0 +1,46 @@
+body{
+    text-align: center;
+}
+
+h2{
+    font-size: 40px;
+    margin: 20px 0px;
+}
+
+table{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+thead{
+    background-color: rgb(211, 211, 211);
+}
+
+tr{
+    border-bottom: 1px solid rgb(211, 211, 211);
+}
+
+div{
+    text-align: left;
+    padding: 15px 0px;
+    margin: 0px 7px;
+}
+
+.btnTabela{
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 5px;
+    padding: 5px 25px;
+    font-size: 13px;
+    color: rgb(211, 211, 211);
+    cursor: pointer;
+}
+
+.btnTabela:hover{
+    background-color: white;
+    border: 1px solid rgb(211, 211, 211);
+    color: black;
+}
