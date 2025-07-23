@@ -6,9 +6,11 @@ import { CadastrarPessoaComponent } from './pages/cadastrar-pessoa/cadastrar-pes
 import { CadastrarPetComponent } from './pages/cadastrar-pet/cadastrar-pet.component';
 import { CadastrarServicoComponent } from './pages/cadastrar-servico/cadastrar-servico.component';
 import { TelaPrincipalComponent } from './pages/tela-principal/tela-principal.component';
+import { LoginComponent } from './pages/login/login.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent },
+    { path: 'home', component: HomeComponent },
+    {path: '', component: LoginComponent},
     { path: 'cadastrarFuncionario', component: CadastrarFuncionarioComponent },
     { path: 'cadastrarPessoa', component: CadastrarPessoaComponent },
     { path: 'cadastrarPet', component: CadastrarPetComponent },

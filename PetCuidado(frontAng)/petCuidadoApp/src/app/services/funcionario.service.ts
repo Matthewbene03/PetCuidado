@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Funcionario } from '../models/funcionario';
+import { appSettings } from '../app.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FuncionarioService {
 
-  private apiUrl = 'http://localhost:8080/funcionario';
+  private apiUrl = `${appSettings.apiBaseUrl}/funcionario`;
 
   constructor(private http: HttpClient) { }
 
@@ -27,8 +28,14 @@ export class FuncionarioService {
   buscarPorId(id: number) {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
-  
+
   excluir(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  autenticar(usuario: string, senha: string): Observable<Funcionario> {
+    return this.http.post<Funcionario>(`${this.apiUrl}/autenticar`, {
+      usuario, senha
+    });
   }
 }

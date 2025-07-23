@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Pet } from '../models/pet';
+import { appSettings } from '../app.config';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Pet } from '../models/pet';
 
 export class PetService {
 
-  private apiUrl = 'http://localhost:8080/pet';
+  private apiUrl = `${appSettings.apiBaseUrl}/pet`;
 
   constructor(private http: HttpClient) { }
 

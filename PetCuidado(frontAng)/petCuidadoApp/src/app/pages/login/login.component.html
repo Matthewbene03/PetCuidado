@@ -1,0 +1,16 @@
+<body>
+    <h2>Autenticar usuario</h2>
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="usuario">
+            <label id="usuario">Usuario:</label><br>
+            <input formControlName="usuario">
+        </div>
+        <div class="senha">
+            <label id="senha">Senha:</label><br>
+            <input formControlName="senha">
+        </div>
+        <div class="divBtn">
+            <button id="btnCadastro" type="submit" [disabled]="formulario.invalid">Login</button>
+        </div>
+    </form>
+</body>

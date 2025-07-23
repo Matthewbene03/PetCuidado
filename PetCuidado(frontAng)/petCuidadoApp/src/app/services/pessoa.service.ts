@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Pessoa } from '../models/pessoa';
+import { appSettings } from '../app.config';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Pessoa } from '../models/pessoa';
 
 export class PessoaService {
 
-  private apiUrl = 'http://localhost:8080/pessoa';
+  private apiUrl = `${appSettings.apiBaseUrl}/pessoa`;
 
   constructor(private http: HttpClient) { }
 

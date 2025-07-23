@@ -1,6 +1,7 @@
 package com.petCuidado.PetCuidado.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,16 @@ public class FuncionarioService {
 		return new FuncionarioDTO(funcionario);
 	}
 
+	public FuncionarioDTO autenticar(String usuario, String senha) {
+	    Funcionario funcionario = funcionarioRepo.findByUsuarioAndSenha(usuario, senha);
+	    if (funcionario != null) {
+	        return new FuncionarioDTO(funcionario);
+	    } else {
+	        return null;
+	    }
+	}
+
+	
 	// Inserir Funcionario
 	public FuncionarioDTO insert(FuncionarioDTO funcionarioDTO) {		
 		Funcionario funcionario = new Funcionario();
