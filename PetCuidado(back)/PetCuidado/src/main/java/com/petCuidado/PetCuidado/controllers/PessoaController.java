@@ -35,6 +35,12 @@ public class PessoaController {
 		return ResponseEntity.ok(pessoaDTOs);
 	}
 	
+	@GetMapping("/{cpf}")
+	public ResponseEntity<PessoaDTO> findByCpf(String cpf) {
+		PessoaDTO pessoaDTOs = pessoaService.findByCpf(cpf);
+		return ResponseEntity.ok(pessoaDTOs);
+	}
+	
 	@PostMapping
 	public ResponseEntity<PessoaDTO> create(@RequestBody PessoaDTO pessoaDTO) {
 		PessoaDTO novoPessoa = pessoaService.insert(pessoaDTO);

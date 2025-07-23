@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+#navMenu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 20px;
+    background-color: black;
+    margin-bottom: 15px;
+}
+
+#navMenu a{
+    text-decoration: none;
+    padding: 20px;
+    color: rgb(211, 211, 211);
+    border: 1px solid black;
+    font-size: 18px;
+}
+
+#navMenu a:hover{
+    border-radius: 5px;
+    color: black;
+    background-color: rgb(211, 211, 211);
+}

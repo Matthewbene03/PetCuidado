@@ -29,6 +29,11 @@ public class PessoaService {
 				.orElseThrow(() -> new EntityNotFoundException("Pessoa não encontrado com ID: " + id));
 		return new PessoaDTO(pessoa);
 	}
+	
+	public PessoaDTO findByCpf(String cpf) {
+		Pessoa pessoa = pessoaRepo.findByCpf(cpf);
+		return new PessoaDTO(pessoa);
+	}
 
 	// Inserir Pessoa
 	public PessoaDTO insert(PessoaDTO pessoaDTO) {
