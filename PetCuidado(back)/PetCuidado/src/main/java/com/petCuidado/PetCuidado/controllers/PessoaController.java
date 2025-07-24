@@ -35,10 +35,16 @@ public class PessoaController {
 		return ResponseEntity.ok(pessoaDTOs);
 	}
 	
-	@GetMapping("/{cpf}")
+	@GetMapping("/cpf/{cpf}")
 	public ResponseEntity<PessoaDTO> findByCpf(@PathVariable String cpf) {
 		PessoaDTO pessoaDTOs = pessoaService.findByCpf(cpf);
 		return ResponseEntity.ok(pessoaDTOs);
+	}
+	
+	@GetMapping("/existeCpf/{cpf}")
+	public ResponseEntity<Boolean> existsByCpf(@PathVariable String cpf){
+		Boolean resposta = pessoaService.existsByCpf(cpf);
+		return ResponseEntity.ok(resposta);
 	}
 	
 	@PostMapping

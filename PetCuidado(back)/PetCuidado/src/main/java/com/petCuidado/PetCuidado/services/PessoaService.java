@@ -34,6 +34,11 @@ public class PessoaService {
 		Pessoa pessoa = pessoaRepo.findByCpf(cpf);
 		return new PessoaDTO(pessoa);
 	}
+	
+	public boolean existsByCpf(String cpf) {
+		boolean existsPessoa = pessoaRepo.existsByCpf(cpf);		
+		return existsPessoa;
+	}
 
 	// Inserir Pessoa
 	public PessoaDTO insert(PessoaDTO pessoaDTO) {

@@ -28,6 +28,8 @@ export class RealizarAgendamentoComponent {
   servicos: Servico[] = [];
   funcionarios: Funcionario[] = [];
   pets: Pet[] = [];
+  enumCargos: string[] = ['Medico_Veterinario', 'Cuidador'];
+
 
   constructor(private fb: FormBuilder, private agendamento: AgendamentoService, private funcionarioService: FuncionarioService, private petService: PetService, private servicoService: ServicoService, private route: ActivatedRoute, private router: Router) {
     this.formulario = this.fb.group({
@@ -48,7 +50,7 @@ export class RealizarAgendamentoComponent {
     }
 
     this.funcionarioService.listar().subscribe(funcionario => {
-      this.funcionarios = funcionario;
+      this.funcionarios = funcionario.filter(f => f.cargo === this.enumCargos[0] || f.cargo === this.enumCargos[1]);
     });
 
     this.petService.listar().subscribe(pet => {

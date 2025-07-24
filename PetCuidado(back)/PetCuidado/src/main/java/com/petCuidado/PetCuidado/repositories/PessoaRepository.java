@@ -8,4 +8,5 @@ import com.petCuidado.PetCuidado.entities.Pessoa;
 
 public interface PessoaRepository extends JpaRepository<Pessoa, Long>{
 	Pessoa findByCpf(String cpf);
+	boolean existsByCpf(String cpf);
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Rowdies:wght@300;400;700&display=swap');
+
 body{
   height: 90vh;
   display: flex;
@@ -7,6 +9,8 @@ body{
 }
 
 h2{
+    font-family: "Rowdies", serif;
+    font-weight: 400;
     font-size: 40px;
     margin: 20px 0px;
 }

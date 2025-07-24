@@ -37,4 +37,8 @@ export class PessoaService {
   buscarPorCpf(cpf: string): Observable<Pessoa>{
     return this.http.get<Pessoa>(`${this.apiUrl}/cpf/${cpf}`);
   }
+
+  existsByCpf(cpf: string): Observable<boolean>{
+    return this.http.get<boolean>(`${this.apiUrl}/existeCpf/${cpf}`);
+  }
 }

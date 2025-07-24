@@ -41,13 +41,18 @@ export class CadastrarPessoaComponent {
 
   onSubmit(): void {
     if (this.formulario.valid) {
-      this.pessoaService.salvar(this.formulario.value).subscribe(() => {
-        alert('Pessoa cadastrada com sucesso!');
-        this.formulario.reset();
+      let cpf = this.formulario.get('cpf')?.value;
+
+      this.pessoaService.existsByCpf(cpf).subscribe((existe: boolean) => {
+        if (!existe) {
+          this.pessoaService.salvar(this.formulario.value).subscribe(() => {
+            alert('Pessoa cadastrada com sucesso!');
+            this.formulario.reset();
+          });
+        } else {
+          alert("Não pode ter mais de uma pessoa com o mesmo CPF!")
+        }
       });
     }
   }
 }
-
-
-
