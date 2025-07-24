@@ -47,4 +47,13 @@ export class FuncionarioService {
     }
     return null;
   }
+
+    getIdUsuarioLogado(): number | null {
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
+    if (usuarioLogado) {
+      const funcionario = JSON.parse(usuarioLogado);
+      return funcionario.id;
+    }
+    return null;
+  }
 }

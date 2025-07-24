@@ -5,11 +5,12 @@ import { CadastrarFuncionarioComponent } from './pages/cadastrar-funcionario/cad
 import { CadastrarPessoaComponent } from './pages/cadastrar-pessoa/cadastrar-pessoa.component';
 import { CadastrarPetComponent } from './pages/cadastrar-pet/cadastrar-pet.component';
 import { CadastrarServicoComponent } from './pages/cadastrar-servico/cadastrar-servico.component';
-import { TelaPrincipalComponent } from './pages/tela-principal/tela-principal.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { RealizarAgendamentoComponent } from './pages/realizar-agendamento/realizar-agendamento.component';
 import { ListaAgendamentosComponent } from './pages/lista-agendamentos/lista-agendamentos.component';
+import { VerificarHorarioComponent } from './pages/verificar-horario/verificar-horario.component';
+import { AtividadesComponent } from './pages/atividades/atividades.component';
 
 export const routes: Routes = [
     { path: '', component: LoginComponent },
@@ -27,7 +28,8 @@ export const routes: Routes = [
             { path: 'cadastrarServico/:id', component: CadastrarServicoComponent },
             {path: 'realizarAgendamento', component: RealizarAgendamentoComponent},
             {path: 'listaAgendamentos', component: ListaAgendamentosComponent},
-            { path: 'telaPrincipal', component: TelaPrincipalComponent }
+            {path: 'verificarHorario', component: VerificarHorarioComponent},
+            {path: 'atividades', component: AtividadesComponent}
         ]
     }
 ];

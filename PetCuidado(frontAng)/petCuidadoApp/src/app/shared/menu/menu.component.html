@@ -17,13 +17,13 @@
         <a href="" (click)="logout()">Sair</a>
     </div>
     <div class="medico" *ngIf="cargo === 'Medico_Veterinario'">
-        <a routerLink="">Verificar horarios</a>
-        <a routerLink="">Submeter arquivos</a>
+        <a routerLink="verificarHorario">Verificar horarios</a>
+        <a routerLink="atividades">Submeter arquivos</a>
         <a href="" (click)="logout()">Sair</a>
     </div>
     <div class="cuidador" *ngIf="cargo === 'Cuidador'">
-        <a routerLink="">Verificar horarios</a>
-        <a routerLink="">Status da tarefa</a>
+        <a routerLink="verificarHorario">Verificar horarios</a>
+        <a routerLink="atividades">Status da tarefa</a>
         <a href="" (click)="logout()">Sair</a>
     </div>
 </nav>

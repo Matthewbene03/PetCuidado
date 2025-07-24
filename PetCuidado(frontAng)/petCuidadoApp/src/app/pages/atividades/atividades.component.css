@@ -5,6 +5,7 @@ body{
 }
 
 h2{
+    text-align: center;
     font-family: "Rowdies", serif;
     font-weight: 400;
     font-size: 40px;
@@ -16,7 +17,7 @@ form{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     border: 2px solid rgb(211, 211, 211);
-    margin: 0px 35px;
+    margin: 0px 20%;
 }
 
 div{
@@ -36,7 +37,7 @@ select{
     height: 44px;
 }
 
-div.pessoa, div.cargo{
+div.pessoa, div.cargo, div.observacao{
     grid-column: 1/3;
 }
 
@@ -45,17 +46,18 @@ div.divBtn{
     text-align: center;
 }
 
-#btnCadastro{
+.btnCadastro{
     background-color: black;
     border: 2px solid black;
     border-radius: 5px;
     padding: 7px 50px;
+    margin: 0px 10px;
     font-size: 18px;
     color: rgb(211, 211, 211);
     cursor: pointer;
 }
 
-#btnCadastro:hover{
+.btnCadastro:hover{
     background-color: white;
     border: 2px solid rgb(211, 211, 211);
     color: black;

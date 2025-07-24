@@ -1,1 +1,23 @@
-<p>verificar-horario works!</p>
+<body>
+  <h2>Tarefas</h2>
+  <table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+      <tr>
+        <th (click)="carregarProtudosPet()">Pet <img src="../../../assets/img/seta-para-cima-e-para-baixo.png"></th>
+        <th (click)="carregarProtudosServico()">Serviço <img src="../../../assets/img/seta-para-cima-e-para-baixo.png"></th>
+        <th (click)="carregarProtudos()">Data e hora <img src="../../../assets/img/seta-para-cima-e-para-baixo.png"></th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let agendamento of agendamentos">
+        <td>{{ agendamento.pet.nome }}</td>
+        <td>{{ agendamento.servico.descricao }}</td>
+        <td>{{ agendamento.data | date:'dd/MM/yyyy HH:mm'}}</td>
+        <td>
+            <button class="btnTabela">Status da tarefa</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>

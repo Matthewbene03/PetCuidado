@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { Agendamento } from '../../models/agendamento';
 import { AgendamentoService } from '../../services/agendamento.service';
 
@@ -22,8 +22,34 @@ export class ListaAgendamentosComponent {
   };
 
   carregarProtudos(): void {
-    this.agendamento.listar().subscribe(agendamento => {
-      this.agendamentos = agendamento;
+    this.agendamento.listar().subscribe(agendamentos => {
+      this.agendamentos = agendamentos.sort((a, b) =>
+        new Date(b.data).getTime() - new Date(a.data).getTime()
+      );
+    });
+  }
+
+  carregarProtudosPet(): void {
+    this.agendamentos.sort((a, b) => {
+      const nomeA = a.pet.nome.toLowerCase();
+      const nomeB = b.pet.nome.toLowerCase();
+      return nomeA.localeCompare(nomeB);
+    });
+  }
+
+  carregarProtudosFuncionario(): void {
+    this.agendamentos.sort((a, b) => {
+      const nomeA = a.funcionario.pessoa.nome.toLowerCase();
+      const nomeB = b.funcionario.pessoa.nome.toLowerCase();
+      return nomeA.localeCompare(nomeB);
+    });
+  }
+
+  carregarProtudosServico(): void {
+    this.agendamentos.sort((a, b) => {
+      const descA = a.servico.descricao.toLowerCase();
+      const descB = b.servico.descricao.toLowerCase();
+      return descA.localeCompare(descB);
     });
   }
 }
