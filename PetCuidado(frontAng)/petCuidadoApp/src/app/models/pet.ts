@@ -6,5 +6,5 @@ export class Pet {
     especie!: String;
     raca!: String;
     idade!: number;
-    pessoaDono!: Pessoa;
+    pessoa!: Pessoa;
 }

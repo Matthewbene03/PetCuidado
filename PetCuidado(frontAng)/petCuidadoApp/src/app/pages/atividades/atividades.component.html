@@ -1,5 +1,5 @@
 <body>
-    <div class="medico" *ngIf="cargo === 'Cuidador'">
+    <div class="medico" *ngIf="!agendamentoRecebido">
         <h2>Status da tarefa</h2>
         <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
             <div class="nomePet">
@@ -30,40 +30,28 @@
             </div>
         </form>
     </div>
-    <div class="cuidador" *ngIf="cargo === 'Medico_Veterinario'">
+    <div class="medico" *ngIf="agendamentoRecebido">
         <h2>Status da tarefa</h2>
         <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
             <div class="nomePet">
                 <label id="nomePet">Nome do Pet:</label><br />
-                <select formControlName="nomePet">
-                    <option *ngFor="let nomePet of nomePets" [ngValue]="nomePet">{{ nomePet.nome }}</option>
-                </select>
+                <input [value]="formulario.get('nomePet')?.value?.nome" disabled>
             </div>
+
             <div class="nomeDono">
                 <label id="nomeDono">Nome do dono:</label><br />
-                <select formControlName="nomeDono">
-                    <option *ngFor="let nomeDono of nomeDonos" [value]="nomeDono">{{ nomeDono.nome}}</option>
+                <input [value]="formulario.get('nomeDono')?.value?.nome" disabled>
+            </div>
+
+            <div class="descricao">
+                <label id="descricao">Descricao:</label><br />
+                <input formControlName="descricao">
+            </div>
+            <div class="status">
+                <label id="status">Status:</label><br />
+                <select formControlName="status">
+                    <option *ngFor="let status of listStatus" [value]="status">{{ status}}</option>
                 </select>
-            </div>
-            <div class="tipoSanguineo">
-                <label id="tipoSanguineo">Tipo Sanguineo:</label><br />
-                <input formControlName="tipoSanguineo">
-            </div>
-            <div class="especie">
-                <label id="especie">Espécie:</label><br />
-                <input formControlName="especie">
-            </div>
-            <div class="sintomas">
-                <label id="sintomas">Sintomas:</label><br />
-                <input formControlName="sintomas">
-            </div>
-            <div class="medicamentos">
-                <label id="medicamentos">Medicamentos:</label><br />
-                <input formControlName="medicamentos">
-            </div>
-            <div class="observacao">
-                <label id="observacao">Observações:</label><br />
-                <input formControlName="observacao">
             </div>
             <div class="divBtn">
                 <button class="btnCadastro" (click)="sair()" type="button">Sair</button>

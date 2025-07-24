@@ -33,6 +33,13 @@ input, select{
     height: 40px;
 }
 
+input:disabled{
+    background-color: rgb(167, 167, 167);
+    border-radius: 5px;
+    color: rgb(49, 47, 47);
+    cursor: not-allowed;
+}
+
 select{
     height: 44px;
 }
