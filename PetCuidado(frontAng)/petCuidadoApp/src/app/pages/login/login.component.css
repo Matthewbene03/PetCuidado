@@ -52,12 +52,12 @@ div.divBtn{
 }
 
 #btnCadastro{
-    background-color: black;
-    border: 2px solid black;
+    background-color: rgba(56, 129, 13, 0.795);
+    border: 2px solid rgba(56, 129, 13, 0.795);
     border-radius: 5px;
     padding: 10px 50px;
     font-size: 25px;
-    color: rgb(211, 211, 211);
+    color: black;
     cursor: pointer;
 }
 

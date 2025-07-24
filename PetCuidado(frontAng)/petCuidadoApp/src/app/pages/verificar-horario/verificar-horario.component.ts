@@ -22,32 +22,32 @@ export class VerificarHorarioComponent {
     this.carregarProtudos();
   };
 
-carregarProtudos(): void {
-  const funcionarioId = this.funcionario.getIdUsuarioLogado();
-  const hoje = new Date();
+  carregarProtudos(): void {
+    const funcionarioId = this.funcionario.getIdUsuarioLogado();
+    const hoje = new Date();
 
-  // Começo da semana (domingo)
-  const inicioSemana = new Date(hoje);
-  inicioSemana.setDate(hoje.getDate() - hoje.getDay());
-  inicioSemana.setHours(0, 0, 0, 0);
+    // Começo da semana (domingo)
+    const inicioSemana = new Date(hoje);
+    inicioSemana.setDate(hoje.getDate() - hoje.getDay());
+    inicioSemana.setHours(0, 0, 0, 0);
 
-  // Fim da semana (sábado)
-  const fimSemana = new Date(hoje);
-  fimSemana.setDate(hoje.getDate() + (6 - hoje.getDay()));
-  fimSemana.setHours(23, 59, 59, 999);
+    // Fim da semana (sábado)
+    const fimSemana = new Date(hoje);
+    fimSemana.setDate(hoje.getDate() + (6 - hoje.getDay()));
+    fimSemana.setHours(23, 59, 59, 999);
 
-  this.agendamento.listar().subscribe(agendamentos => {
-    const filtrados = agendamentos.filter(a =>
-      a.funcionario.id === funcionarioId &&
-      new Date(a.data) >= inicioSemana &&
-      new Date(a.data) <= fimSemana
-    );
+    this.agendamento.listar().subscribe(agendamentos => {
+      const filtrados = agendamentos.filter(a =>
+        a.funcionario.id === funcionarioId &&
+        new Date(a.data) >= inicioSemana &&
+        new Date(a.data) <= fimSemana
+      );
 
-    this.agendamentos = filtrados.sort((a, b) =>
-      new Date(b.data).getTime() - new Date(a.data).getTime()
-    );
-  });
-}
+      this.agendamentos = filtrados.sort((a, b) =>
+        new Date(b.data).getTime() - new Date(a.data).getTime()
+      );
+    });
+  }
 
   carregarProtudosPet(): void {
     this.agendamentos.sort((a, b) => {
@@ -59,8 +59,8 @@ carregarProtudos(): void {
 
   carregarProtudosDono(): void {
     this.agendamentos.sort((a, b) => {
-      const nomeA = a.pet.pessoaDono.nome.toLowerCase();
-      const nomeB = b.pet.pessoaDono.nome.toLowerCase();
+      const nomeA = a.pet.pessoa.nome.toLowerCase();
+      const nomeB = b.pet.pessoa.nome.toLowerCase();
       return nomeA.localeCompare(nomeB);
     });
   }
@@ -71,5 +71,9 @@ carregarProtudos(): void {
       const descB = b.servico.descricao.toLowerCase();
       return descA.localeCompare(descB);
     });
+  }
+
+  executarAcao(agendamento: Agendamento): void {
+    this.router.navigate(['/menu/atividades'], { state: { agendamento: agendamento } });
   }
 }

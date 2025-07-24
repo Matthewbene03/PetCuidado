@@ -15,7 +15,7 @@
         <td>{{ agendamento.servico.descricao }}</td>
         <td>{{ agendamento.data | date:'dd/MM/yyyy HH:mm'}}</td>
         <td>
-            <button class="btnTabela">Status da tarefa</button>
+            <button class="btnTabela" (click)="executarAcao(agendamento)">Ação</button>
         </td>
       </tr>
     </tbody>
