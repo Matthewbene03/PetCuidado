@@ -53,6 +53,7 @@ public class AgendamentoService {
 		agendamento.setPet(agendamentoDTO.getPet());
 		agendamento.setServico(agendamentoDTO.getServico());
 		agendamento.setFuncionario(agendamentoDTO.getFuncionario());
+		agendamento.setStatus(agendamentoDTO.getStatus());
 		Agendamento agendamentoSalvo = agendamentoRepository.save(agendamento); 
 		return new AgendamentoDTO(agendamentoSalvo); 
 	}
@@ -65,6 +66,7 @@ public class AgendamentoService {
 		agendamento.setPet(agendamentoDTO.getPet());
 		agendamento.setServico(agendamentoDTO.getServico());
 		agendamento.setFuncionario(agendamentoDTO.getFuncionario());
+		agendamento.setStatus(agendamentoDTO.getStatus());
 		Agendamento agendamentoAtualizado = agendamentoRepository.save(agendamento); 
 		return new AgendamentoDTO(agendamentoAtualizado); 
 	}

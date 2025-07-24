@@ -3,6 +3,8 @@ package com.petCuidado.PetCuidado.entities;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+import com.petCuidado.PetCuidado.enuns.Status;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,6 +24,8 @@ public class Agendamento {
 	
 	@Column(nullable = false)
 	private LocalDateTime data;
+	
+	private Status status;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_pet", nullable = false)
@@ -48,6 +52,9 @@ public class Agendamento {
 		this.funcionario = funcionario;
 	}
 	
+	public Status getStatus() {
+		return status;
+	}
 	public long getId() {
 		return id;
 	}
@@ -78,10 +85,15 @@ public class Agendamento {
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(data, funcionario, id, pet, servico);
+		return Objects.hash(data, funcionario, id, pet, servico, status);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -91,9 +103,10 @@ public class Agendamento {
 		if (getClass() != obj.getClass())
 			return false;
 		Agendamento other = (Agendamento) obj;
-		return Objects.equals(data, other.data) && Objects.equals(funcionario, other.funcionario)
-				&& id == other.id && Objects.equals(pet, other.pet)
-				&& Objects.equals(servico, other.servico);
+		return Objects.equals(data, other.data) && Objects.equals(funcionario, other.funcionario) && id == other.id
+				&& Objects.equals(pet, other.pet) && Objects.equals(servico, other.servico)
+				&& Objects.equals(status, other.status);
 	}
+	
 
 }

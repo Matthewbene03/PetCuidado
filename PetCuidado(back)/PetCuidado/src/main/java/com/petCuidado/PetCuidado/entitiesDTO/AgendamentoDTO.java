@@ -6,6 +6,7 @@ import com.petCuidado.PetCuidado.entities.Agendamento;
 import com.petCuidado.PetCuidado.entities.Funcionario;
 import com.petCuidado.PetCuidado.entities.Pet;
 import com.petCuidado.PetCuidado.entities.Servico;
+import com.petCuidado.PetCuidado.enuns.Status;
 
 public class AgendamentoDTO {
 
@@ -14,6 +15,7 @@ public class AgendamentoDTO {
 	private Pet pet;
 	private Servico servico;
 	private Funcionario funcionario;
+	private Status status;
 	
 	public AgendamentoDTO() {
 		
@@ -25,6 +27,7 @@ public class AgendamentoDTO {
 		this.pet = agendamento.getPet();
 		this.servico = agendamento.getServico();
 		this.funcionario = agendamento.getFuncionario();
+		this.status = agendamento.getStatus();
 	}
 
 	public long getId() {
@@ -45,6 +48,10 @@ public class AgendamentoDTO {
 
 	public Funcionario getFuncionario() {
 		return funcionario;
+	}
+	
+	public Status getStatus() {
+		return status;
 	}
 	
 }
