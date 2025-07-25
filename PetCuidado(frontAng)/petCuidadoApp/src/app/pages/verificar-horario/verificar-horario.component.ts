@@ -40,7 +40,8 @@ export class VerificarHorarioComponent {
       const filtrados = agendamentos.filter(a =>
         a.funcionario.id === funcionarioId &&
         new Date(a.data) >= inicioSemana &&
-        new Date(a.data) <= fimSemana
+        new Date(a.data) <= fimSemana &&
+        a.status !== 'CONCLUIDO'
       );
 
       this.agendamentos = filtrados.sort((a, b) =>

@@ -1,35 +1,4 @@
 <body>
-    <div class="medico" *ngIf="!agendamentoRecebido">
-        <h2>Status da tarefa</h2>
-        <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-            <div class="nomePet">
-                <label id="nomePet">Nome do Pet:</label><br />
-                <select formControlName="nomePet">
-                    <option *ngFor="let nomePet of nomePets" [ngValue]="nomePet">{{ nomePet.nome }}</option>
-                </select>
-            </div>
-            <div class="nomeDono">
-                <label id="nomeDono">Nome do dono:</label><br />
-                <select formControlName="nomeDono">
-                    <option *ngFor="let nomeDono of nomeDonos" [value]="nomeDono">{{ nomeDono.nome}}</option>
-                </select>
-            </div>
-            <div class="descricao">
-                <label id="descricao">Descricao:</label><br />
-                <input formControlName="descricao">
-            </div>
-            <div class="status">
-                <label id="status">Status:</label><br />
-                <select formControlName="status">
-                    <option *ngFor="let status of listStatus" [value]="status">{{ status}}</option>
-                </select>
-            </div>
-            <div class="divBtn">
-                <button class="btnCadastro" (click)="sair()" type="button">Sair</button>
-                <button class="btnCadastro" type="submit" [disabled]="formulario.invalid">Cadastrar</button>
-            </div>
-        </form>
-    </div>
     <div class="medico" *ngIf="agendamentoRecebido">
         <h2>Status da tarefa</h2>
         <form [formGroup]="formulario" (ngSubmit)="onSubmit()">

@@ -23,6 +23,7 @@ export class AgendamentoService {
     if (agendamento.id) {
       return this.http.put<Agendamento>(`${this.apiUrl}/${agendamento.id}`, agendamento);
     } else {
+      agendamento.status = 'NAO_CONCLUIDO';
       return this.http.post<Agendamento>(this.apiUrl, agendamento);
     }
   }

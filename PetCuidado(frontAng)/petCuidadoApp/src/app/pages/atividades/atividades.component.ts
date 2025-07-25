@@ -12,6 +12,9 @@ import { PessoaService } from '../../services/pessoa.service';
 import { Pet } from '../../models/pet';
 import { PetService } from '../../services/pet.service';
 import { Agendamento } from '../../models/agendamento';
+import { Servico } from '../../models/servico';
+import { ServicoService } from '../../services/servico.service';
+import { AgendamentoService } from '../../services/agendamento.service';
 
 @Component({
   selector: 'app-atividades',
@@ -26,11 +29,12 @@ export class AtividadesComponent {
   agendamentoRecebido: Agendamento = new Agendamento();
   nomePets: Pet[] = [];
   nomeDonos: Pessoa[] = [];
-  listStatus: string[] = ['Não iniciada', 'Em andamento', 'Realizada'];
+  descricoes: Servico[] = [];
+  listStatus: string[] = ['NAO_CONCLUIDO', 'EM_ANDAMENTO', 'CONCLUIDO'];
 
   cargo: string | null = null;
 
-  constructor(private fb: FormBuilder, private funcionarioService: FuncionarioService, private petService: PetService, private pessoaService: PessoaService, private route: ActivatedRoute, private router: Router) {
+  constructor(private fb: FormBuilder, private funcionarioService: FuncionarioService, private petService: PetService, private pessoaService: PessoaService, private servico: ServicoService, private agendamento: AgendamentoService, private route: ActivatedRoute, private router: Router) {
     this.cargo = this.funcionarioService.getCargoUsuarioLogado();
     this.formulario = this.fb.group({
       id: [''], // campo opcional para identificar edição
@@ -51,8 +55,9 @@ export class AtividadesComponent {
 
     this.agendamentoRecebido = history.state.agendamento;
     if (this.agendamentoRecebido) {
+      console.log(this.agendamentoRecebido);
       this.preencherFormulario(this.agendamentoRecebido);
-        this.formulario.get('descricao')?.disable();
+      this.formulario.get('descricao')?.disable();
     } else {
       this.petService.listar().subscribe(pet => {
         this.nomePets = pet;
@@ -61,21 +66,30 @@ export class AtividadesComponent {
       this.pessoaService.listar().subscribe(pessoa => {
         this.nomeDonos = pessoa;
       });
+
+      this.servico.listar().subscribe(servico => {
+        this.descricoes = servico;
+      })
     }
   }
 
   onSubmit(): void {
     if (this.formulario.valid) {
-      //this.funcionarioService.salvar(this.formulario.value).subscribe(() => {
-      //alert('Funcionario cadastrado com sucesso!');
-      //this.formulario.reset();
-      //});
+      let statusModificado = this.formulario.get('status')?.value;
+      console.log(statusModificado);
+      this.agendamentoRecebido.status = statusModificado;
+      this.agendamento.salvar(this.agendamentoRecebido).subscribe(() => {
+        this.formulario.reset();
+        if (statusModificado === this.listStatus[2]) {
+          this.router.navigate(['/menu/']);
+        } else{
+          this.router.navigate(['/menu/verificarHorario']);
+        }
+      });
     }
   }
 
   preencherFormulario(agendamento: Agendamento): void {
-    console.log('agendamento recebido:', agendamento);
-    console.log('pessoa dono:', agendamento.pet.pessoa);
     this.formulario.patchValue({
       nomePet: agendamento.pet,
       nomeDono: agendamento.pet.pessoa,

@@ -21,12 +21,12 @@ INSERT INTO tb_servico(descricao, preco, duracao) VALUES ('Tosa', 50.00, 29);
 INSERT INTO tb_servico(descricao, preco, duracao) VALUES ('Banho', 150.00, 59);
 INSERT INTO tb_servico(descricao, preco, duracao) VALUES ('Vacinação', 75.50, 29);
 
-INSERT INTO tb_agendamento(data, id_pet, id_servico, id_funcionario) VALUES ('2021-05-10 14:00:00', 1, 1, 2);
-INSERT INTO tb_agendamento(data, id_pet, id_servico, id_funcionario) VALUES ('2021-05-11 15:00:00', 2, 2, 1);
-INSERT INTO tb_agendamento(data, id_pet, id_servico, id_funcionario) VALUES ('2021-05-10 10:00:00', 1, 2, 2);
-INSERT INTO tb_agendamento(data, id_pet, id_servico, id_funcionario) VALUES ('2021-05-13 11:00:00', 3, 1, 3);
-INSERT INTO tb_agendamento(data, id_pet, id_servico, id_funcionario) VALUES ('2021-05-13 14:00:00', 3, 2, 3);
-INSERT INTO tb_agendamento(data, id_pet, id_servico, id_funcionario) VALUES ('2021-05-13 15:00:00', 3, 3, 5);
+INSERT INTO tb_agendamento(data, status, id_pet, id_servico, id_funcionario) VALUES ('2021-05-10 14:00:00', 0, 1, 1, 2);
+INSERT INTO tb_agendamento(data, status, id_pet, id_servico, id_funcionario) VALUES ('2021-05-11 15:00:00', 0, 2, 2, 1);
+INSERT INTO tb_agendamento(data, status, id_pet, id_servico, id_funcionario) VALUES ('2021-05-10 10:00:00', 0, 1, 2, 2);
+INSERT INTO tb_agendamento(data, status, id_pet, id_servico, id_funcionario) VALUES ('2021-05-13 11:00:00', 0, 3, 1, 3);
+INSERT INTO tb_agendamento(data, status, id_pet, id_servico, id_funcionario) VALUES ('2021-05-13 14:00:00', 0, 3, 2, 3);
+INSERT INTO tb_agendamento(data, status, id_pet, id_servico, id_funcionario) VALUES ('2021-05-13 15:00:00', 0, 3, 3, 5);
 
 INSERT INTO tb_pagamento(data_vencimento, data_pagamento, valor, metodo, id_agendamento) VALUES ('17/05/2021', '13/05/2021', 50.00, 4, 1);
 INSERT INTO tb_pagamento(data_vencimento, data_pagamento, valor, metodo, id_agendamento) VALUES ('19/05/2021', '12/05/2021', 150.00, 3, 2);
